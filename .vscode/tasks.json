@@ -2,6 +2,51 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "angular-start",
+      "type": "npm",
+      "script": "start:angular",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [
+          {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": ".*http://localhost:4200.*"
+        }
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false,
+        "close": true
+      }
+    },
+    {
+      "label": "angular-stop",
+      "command": "echo ${input:angular-terminate}",
+      "type": "shell",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false,
+        "close": true
+      }
+    },
+    {
       "label": "docker-up",
       "type": "shell",
       "command": "npm run docker-up",
@@ -45,56 +90,11 @@
         "clear": false,
         "close": true
       }
-    },
-    {
-      "label": "angular-start",
-      "type": "npm",
-      "script": "start:angular",
-      "isBackground": true,
-      "problemMatcher": {
-        "pattern": [
-          {
-            "regexp": ".",
-            "file": 1,
-            "location": 2,
-            "message": 3
-          }
-        ],
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": ".*",
-          "endsPattern": ".*Application bundle generation complete.*"
-        }
-      },
-      "presentation": {
-        "echo": true,
-        "reveal": "never",
-        "focus": false,
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": false,
-        "close": true
-      }
-    },
-    {
-      "label": "angular-stop",
-      "command": "echo ${input:terminate}",
-      "type": "shell",
-      "problemMatcher": [],
-      "presentation": {
-        "echo": true,
-        "reveal": "never",
-        "focus": false,
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": false,
-        "close": true
-      }
     }
   ],
   "inputs": [
     {
-      "id": "terminate",
+      "id": "angular-terminate",
       "type": "command",
       "command": "workbench.action.tasks.terminate",
       "args": "angular-start"

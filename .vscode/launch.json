@@ -7,8 +7,8 @@
     {
       "name": "Start All & Debug",
       "configurations": [
+        "Debug api & functions",
         "Debug angular",
-        "Debug functions",
       ],
       "stopAll": true,
       "presentation": {
@@ -20,21 +20,13 @@
   ],
   "configurations": [
     {
-      "name": "Debug angular",
-      "type": "chrome",
-      "request": "launch",
-      "preLaunchTask": "angular-start",
-      "postDebugTask": "angular-stop",
-      "url": "http://localhost:4200/"
-    },
-    {
+      "name": "Debug api & functions",
       "type": "node",
       "request": "launch",
-      "name": "Debug functions",
       "runtimeExecutable": "npm",
       "runtimeArgs": [
         "run",
-        "dev:functions"
+        "dev"
       ],
       "console": "integratedTerminal",
       "skipFiles": [
@@ -43,6 +35,14 @@
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "docker-up",
       "postDebugTask": "docker-down"
-    }
+    },
+    {
+      "name": "Debug angular",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "angular-start",
+      "postDebugTask": "angular-stop",
+      "url": "http://localhost:4200/"
+    },
   ]
 }

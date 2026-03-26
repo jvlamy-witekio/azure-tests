@@ -4,19 +4,21 @@
   "description": "",
   "main": "dist/functions/index.js",
   "scripts": {
-    "preinstall": "npm run install:angular && npm run install:functions",
+    "preinstall": "npm run install:api && npm run install:angular && npm run install:functions",
+    "install:api": "npm i --prefix src/api",
     "install:angular": "npm i --prefix src/angular",
     "install:functions": "npm i --prefix src/functions",
-    "build": "npm run build:angular && npm run build:functions",
+    "build": "npm run build:api && npm run build:angular && npm run build:functions",
+    "build:api": "cd src/api && npm run build",
     "build:angular": "cd src/angular && npm run build",
     "build:functions": "cd src/functions && npm run build",
+    "start:api": "cd src/api && npm run start:dev",
     "start:angular": "cd src/angular && npm run start",
     "start:functions": "cd src/functions && npm run start",
     "watch:functions": "cd src/functions && npm run watch",
-    "prebuild": "npm run build",
+    "dev": "npm-run-all --parallel start:api start:functions watch:functions",
     "docker-up": "docker compose up --build --remove-orphans",
-    "docker-down": "docker compose down",
-    "dev:functions": "npm-run-all --parallel  start:functions watch:functions"
+    "docker-down": "docker compose down"
   },
   "dependencies": {},
   "devDependencies": {
