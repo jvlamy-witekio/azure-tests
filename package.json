@@ -4,23 +4,23 @@
   "description": "",
   "main": "dist/functions/index.js",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "prestart": "npm run build",
-    "start": "func start",
+    "preinstall": "npm run install:angular && npm run install:functions",
+    "install:angular": "npm i --prefix src/angular",
+    "install:functions": "npm i --prefix src/functions",
+    "build": "npm run build:angular && npm run build:functions",
+    "build:angular": "cd src/angular && npm run build",
+    "build:functions": "cd src/functions && npm run build",
+    "start:angular": "cd src/angular && npm run start",
+    "start:functions": "cd src/functions && npm run start",
+    "watch:functions": "cd src/functions && npm run watch",
+    "prebuild": "npm run build",
     "docker-up": "docker compose up --build --remove-orphans",
     "docker-down": "docker compose down",
-    "dev": "npm-run-all --parallel watch start"
+    "dev:functions": "npm-run-all --parallel  start:functions watch:functions"
   },
-  "dependencies": {
-    "@azure/functions": "^4.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^24.0.0",
-    "azure-functions-core-tools": "^4.0.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^3.0.0",
-    "tsx": "^4.21.0",
-    "typescript": "^6.0.0"
+    "prettier": "^3.0.0"
   }
 }

@@ -22,7 +22,7 @@ export async function httpTrigger(
     context.log(`Name: ${name}`);
 
     if (name) {
-      const msg = `Name passed to the function ${name} 5`;
+      const msg = `Name passed to the function ${name}`;
       context.extraOutputs.set(sendToQueue, { body: msg });
       return { body: msg };
     } else {
