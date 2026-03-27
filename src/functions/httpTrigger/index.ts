@@ -3,13 +3,12 @@ import {
   HttpRequest,
   HttpResponseInit,
   InvocationContext,
-  output,
 } from "@azure/functions";
 
-const sendToQueue = output.eventHub({
-  connection: "EventHubConnection",
-  eventHubName: "eh1",
-});
+// const sendToQueue = output.eventHub({
+//   connection: "EventHubConnection",
+//   eventHubName: "eh1",
+// });
 
 export async function httpTrigger(
   request: HttpRequest,
@@ -23,7 +22,7 @@ export async function httpTrigger(
 
     if (name) {
       const msg = `Name passed to the function ${name}`;
-      context.extraOutputs.set(sendToQueue, { body: msg });
+      // context.extraOutputs.set(sendToQueue, { body: msg });
       return { body: msg };
     } else {
       context.log("Missing required data");
@@ -38,6 +37,6 @@ export async function httpTrigger(
 app.http("httpTrigger", {
   methods: ["GET", "POST"],
   authLevel: "anonymous",
-  extraOutputs: [sendToQueue],
+  // extraOutputs: [sendToQueue],
   handler: httpTrigger,
 });

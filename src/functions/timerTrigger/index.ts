@@ -8,7 +8,7 @@ export async function timerTrigger(
 }
 
 app.timer("timerTrigger", {
-  schedule: "*/10 * * * * *",
+  schedule: "* */10 * * * *",
   runOnStartup: true,
   handler: timerTrigger,
 });

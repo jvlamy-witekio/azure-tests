@@ -33,6 +33,6 @@
     "strict": true,
     "verbatimModuleSyntax": false,
     "isolatedModules": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   }
 }
