@@ -12,7 +12,7 @@
     "build:api": "cd src/api && npm run build",
     "build:angular": "cd src/angular && npm run build",
     "build:functions": "cd src/functions && npm run build",
-    "start:api": "cd src/api && npm run start:dev",
+    "start:api": "cd src/api && npm run start:debug",
     "start:angular": "cd src/angular && npm run start",
     "start:functions": "cd src/functions && npm run start",
     "watch:functions": "cd src/functions && npm run watch",
