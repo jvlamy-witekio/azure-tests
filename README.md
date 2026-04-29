@@ -102,8 +102,6 @@
 
     export RESOURCE_GROUP=rg-frc-dt-infra-env-iothub-01
     export FUNCTION_APP_CODEC=azfunction-frc-dt-infra-env-iothub-codec-01
-    export STORAGE_ACCOUNT=storfrcdtenviothub01
-    export FUNCTION_APP_CODEC_DSCN=azfunction-frc-dt-infra-env-iothub-codec-01
 
     cd src/functions
     npm ci
@@ -111,6 +109,7 @@
     npm run build:prod
     npm ci --omit=dev
     rm *.zip
-    zip -r $FUNCTION_APP_CODEC.zip .
+    zip -rq $FUNCTION_APP_CODEC.zip .
+    npm ci
 
     az functionapp deployment source config-zip --name $FUNCTION_APP_CODEC --resource-group $RESOURCE_GROUP --src $FUNCTION_APP_CODEC.zip

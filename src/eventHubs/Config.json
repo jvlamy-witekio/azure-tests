@@ -3,14 +3,14 @@
     "NamespaceConfig": [
       {
         "Type": "EventHub",
-        "Name": "emulatorNs1",
+        "Name": "evthubns-frc-dt-infra-sbx-iothub-01",
         "Entities": [
           {
-            "Name": "eh1",
-            "PartitionCount": "2",
+            "Name": "evthub-frc-dt-infra-sbx-iothub-codec-01",
+            "PartitionCount": "1",
             "ConsumerGroups": [
               {
-                "Name": "cg1"
+                "Name": "eventHubTrigger"
               }
             ]
           }

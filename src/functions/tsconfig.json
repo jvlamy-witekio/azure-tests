@@ -28,7 +28,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true,
+    "noPropertyAccessFromIndexSignature": false,
     // Recommended Options
     "strict": true,
     "verbatimModuleSyntax": false,
